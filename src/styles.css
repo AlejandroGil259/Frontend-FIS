@@ -1,1 +1,412 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+
+:root {
+    --gold: rgb(199, 160, 2);
+    --yellow: rgb(241, 231, 74);
+    --royal-blue: rgb(8, 22, 54);
+
+    --primary: rgb(8, 22, 54);
+    --primary-lighter: rgb(16, 36, 82);
+    --primary-light: rgb(47, 56, 136);
+
+    --secondary: #D10024;
+
+    --orange: rgb(209, 98, 18);
+
+    --text-light: #8895b5;
+    --text-on-primary: #fff;
+
+    --main-background: #dddddd;
+
+    --duration: 250ms;
+    --timing: ease-out;
+
+    --icon-size: 1.35rem;
+    --icon-width: 2.5rem;
+
+    --radius-sm: .5rem;
+    --radius: 1rem;
+
+    --sidenav-gutter: 1.5rem;
+    --sidenav-width: 24rem;
+    --sidenav-mini-width: 5.5rem;
+
+    --breadcrumb: 3.7rem;
+
+    --sticky-height: 5rem;
+    --sticky-height-mini: 4rem;
+
+    --font-family: 'PT Serif', serif;
+}
+
+.color1 {color: #060606;}
+.color2 {color: #0e2037;}
+.color3 {color: #294874;}
+.color4 {color: #4a79bb;}
+.color5 {color: #66a1d4;}
+
+/*! Remover todas las animaciones y transiciones que la gente no prefiere ver -- */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/*! Reset ---------------------------------------------------------------------- */
+
+/*! Reglas de Box sizing ------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
+/*! Remover margin por defecto ------------------------------------------------- */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
+/*! Estilos bases de la página -------------------------------------------------- */
+
+html {
+	scroll-behavior: smooth;
+    color: #212121 !important;
+    
+}
+
+body {
+    --scroll-thumb: var(--primary-lighter);
+	align-items: center;
+	background: #011b47;
+	flex-flow: column nowrap;
+	justify-content: center;
+	min-height: 100vh;
+	overflow-x: hidden;
+	scrollbar-color: var(--scroll-thumb) transparent;
+	transition: scrollbar-color 200ms;
+    background-color: var(--surface-a);
+    display: flex;
+    /* font-family: 'PT Serif', serif !important; */
+    scrollbar-width: thin;
+    width: 100vw;
+}
+
+body::-webkit-scrollbar {
+	height: 12px;
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+	background: var(--text-light);
+    transition: background 200ms;
+}
+body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+body::-webkit-scrollbar-corner {
+    background: none;
+}
+body:hover {
+	--scroll-thumb: var(--primary-lighter);
+    --scroll-track: var(--text-light);
+    scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+body:hover::-webkit-scrollbar-track {
+    background: var(--text-light);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+.text-layout {
+    color: var(--text-color)
+}
+
+
+
+/*! Alineación del contenido ----------------------------------------------------- */
+
+.align-row-left,
+.align-row-center,
+.align-row-right {
+    display: flex;
+    justify-content: center;
+}
+
+
+.align-row-left,
+.align-row-center,
+.align-row-right {
+    flex-direction: row;
+}
+
+
+.align-row-left { align-items: left; }
+.align-row-center { align-items: center; }
+.align-row-right { align-items: right; }
+
+
+
+/*! Estilos de los formularios de autenticación ---------------------------------- */
+
+.form__auth {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin-bottom: var(--sticky-height);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-image: url('src/assets/Fondo-Padre-plan.jpg');
+    background-size: cover;
+}
+
+
+/*! Formulario de login y register ----------------------------------------------- */
+
+.form__login {
+    width: 60%;
+    height: 85%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffee;
+    border-radius: 20px;
+}
+.form__register {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffffee;
+    border-radius: 20px;
+    
+}
+
+
+
+/*! Contenido de los formularios ------------------------------------------------- */
+.form__content {
+    margin:  400px;
+    width: 90%;
+}
+
+
+.flex__input,
+.flex__label-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.flex__input .input__show {
+    align-items: center;
+    background: var(--royal-blue);
+    display: flex ;
+    justify-content: center;
+    width: 50px;
+    border-radius: 10px;
+    
+}
+
+.flex__input .input__show i {
+    color: white;
+    font-size: 22.5px;
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.form__btn {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+
+
+
+/*! Botones de ingreso o registro-----------------------------------------------  */
+
+.btn__auth {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    transition: all var(--duration);
+    transform: scale(1.01);
+    width: 50%;
+}
+
+
+.btn__auth:hover{
+    color: var(--text-on-primary);
+    transition: all var(--duration);
+    transform: scale(1.01);
+}
+
+
+
+/*! Contenedor del Sidenav ----------------------------------- */
+
+.sidenav.is-collapsed {
+    width: 5.5rem;
+}
+
+
+/*! Estilos del Componente InputAutoComplete ----------------- */
+app-input-autocomplete {
+    width: 100%;
+}
+
+
+/*! Input de la búsqueda ------------------------------------- */
+
+.search__input {
+    background: var(--primary-lighter);
+    border-radius: var(--radius-sm);
+    border: none;
+    color: var(--text-on-primary);
+    flex: 1 1 auto;
+    height: var(--icon-width);
+    min-width: 1px;
+    outline-offset: -2px;
+    padding: 0 var(--icon-width) 0 1rem;
+    transition-duration: var(--duration);
+    transition-property: background, color, padding;
+    width: 100%;
+}
+.search__input::placeholder {
+    color: var(--text-light);
+    transition-duration: var(--duration);
+    transition-property: color;
+}
+.search__input:focus {
+    outline: 2px solid var(--gold);
+}
+.sidenav.is-collapsed .search__input {
+    color: transparent;
+    padding-left: 0;
+}
+.sidenav.is-collapsed .search__input:not(:hover) {
+    background: none;
+}
+.sidenav.is-collapsed .search__input::placeholder {
+    color: transparent
+}
+
+
+/*! Search en modo colapsado ------------------------------------- */
+.sidenav.is-collapsed .search {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+
+/*! Tooltip menú del usuario */
+
+.user {
+    position: relative;
+}
+
+.sidenav__tooltip-user {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background: var(--primary);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius);
+    box-shadow: -5px 5px 5px var(--primary-lighter);
+    border: 1px solid var(--primary-light);
+}
+
+.sidenav.is-collapsed .sidenav__tooltip-user {
+    bottom: 50%;
+    left: 100%;
+}
+
+.sidenav__tooltip-user ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidenav__tooltip-user li {
+    width: 100%;
+}
+
+.sidenav__tooltip-user li button {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 15px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    border-radius: var(--radius-sm);
+    color: var(--text-light);
+    transition-property: color, background;
+    transition-duration: var(--duration);
+    transition-timing-function: var(--timing);
+}
+
+.sidenav__tooltip-user li button:hover {
+    color: var(--text-on-primary);
+    background: var(--primary-light);
+}
+
+
+
+/*! Botón para hacer scroll Up -------------------------------- */
+
+.btn__up {
+    background: var(--secondary);
+    bottom: 1000px;
+    color: white;
+    opacity: 1;
+    position: absolute;
+    transition: all var(--duration) var(--timing);
+    z-index: 20;
+}
+.btn__up:hover {
+    transform: scale(1.2);
+}
+
+.btn__up-disable {
+    opacity: 0;
+    transition: all var(--duration) var(--timing);
+}
+
+.title{
+  font-size: 1.8 rem;
+}

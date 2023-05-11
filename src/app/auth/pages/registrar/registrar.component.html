@@ -1,0 +1,272 @@
+    <div class="d-flex justify-content-center background-image">
+      <div class="section-container">
+        <i class="d-flex justify-content-center pi pi-users" style="font-size: 50px;"></i>
+        <div class="align-row-center">
+          <h1>Regístrese</h1>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-12">
+              <small class="text-danger">* Indica Campos Obligatorios</small>
+    
+  
+            <!-- Asociar el formulario de HTML con el contenido de la clase del componente -->
+            <form method="post" [formGroup]="registerForm" autocomplete="off">
+            
+              <!-- Documento -->
+              <div class="mb-1 row">
+              <div class="col-md-6">
+                <div class="my-3">
+                  <label class="col-form-control">
+                    Documento   
+                  </label>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="document"
+                  placeholder="Ingrese documento"
+                />
+                <span
+                  class="form-text text-danger"
+                  *ngIf="isInvalidField('document')"
+                >
+                  El campo es obligatorio
+                </span>
+              </div>
+                <!-- Input Text de codigo -->
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label class="col-form-control">
+                      Codigo <small class="text-danger">*</small>
+                    </label>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="code"
+                    placeholder="Ingrese su codigo"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('code')"
+                  >
+                    El campo es obligatorio
+                  </span>
+                </div>
+            </div>
+
+       
+              <!-- Nombres y Apellidos -->
+              <div class="mb-1 row">
+                <!-- Input Text de Nombres -->
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label class="col-form-control">
+                      Nombre(s) <small class="text-danger">*</small>
+                    </label>
+                  </div>
+                  <input
+                    name="txt_nombre"
+                    type="text"
+                    class="form-control"
+                    formControlName="name"
+                    placeholder="Ingrese su(s) nombre(s)"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('name')"
+                  >
+                    El campo es obligatorio
+                  </span>
+                </div>
+                <!-- Input Text de Apellidos -->
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label class="col-form-control">
+                      Apellido(s) <small class="text-danger">*</small>
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="surname"
+                    placeholder="Ingrese su(s) apellido(s)"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('surname')"
+                  >
+                    El campo es obligatorio
+                  </span>
+                </div>
+  
+              
+  
+                <!-- Input Text de periodo de ingreso -->
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label class="col-form-control">
+                      Periodo de ingreso <small class="text-danger">*</small>
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="period"
+                    placeholder="Ej: 2023-1"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('period')"
+                  >
+                    El campo es obligatorio
+                  </span>
+                </div>
+                
+                <!-- Input Text de telefono -->
+                <div class="col-md-6">
+                  <div class="my-3">
+                    <label class="col-form-control"> Telefono </label>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="telephone"
+                    placeholder="Ingrese su # de telefono"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('telephone')"
+                  >
+                    El campo es obligatorio
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Input Text de Email -->
+              <div class="mb-1 row">
+                <div class="col-9">
+                  <div class="my-2">
+                    <label class="col-form-control">
+                      Email <span class="text-danger">*</span>
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Ingrese su Email"
+                  />
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('email')"
+                  >
+                    {{ emailError }}
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Input Text de Password -->
+              <div class="mb-1 row">
+                <div class="col-9">
+                  <div class="my-2 flex__label-input">
+                    <label class="col-form-control">
+                      Contraseña <span class="text-danger">*</span>
+                    </label>
+                  </div>
+  
+                  <div class="flex__input">
+                    <input
+                      [type]="showPassword ? 'text' : 'password'"
+                      class="form-control"
+                      formControlName="password"
+                      placeholder="Ingrese su contraseña"
+                    />
+                    <button
+                      type="button"
+                      class="input__show"
+                      (click)="togglePassword('password')"
+                    >
+                      <i
+                        [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+                      ></i>
+                    </button>
+                  </div>
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('password')"
+                  >
+                    Se debe ingresar una contraseña
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Input Text de Confirm Password -->
+              <div class="mb-1 row">
+                <div class="col-9">
+                  <div class="my-2 flex__label-input">
+                    <label class="col-form-control">
+                      Confirme su contraseña <span class="text-danger">*</span>
+                    </label>
+                  </div>
+  
+                  <div class="flex__input">
+                    <input
+                      [type]="showConfirmPassword ? 'text' : 'password'"
+                      class="form-control"
+                      formControlName="confirm_password"
+                      placeholder="Ingrese su contraseña de nuevo"
+                    />
+                    <button
+                      type="button"
+                      class="input__show"
+                      (click)="togglePassword('confirm_password')"
+                    >
+                      <i
+                        [class]="showConfirmPassword ? 'pi pi-eye-slash sm' : 'pi pi-eye sm'
+                        "
+                      ></i>
+                    </button>
+                  </div>
+                  <span
+                    class="form-text text-danger"
+                    *ngIf="isInvalidField('confirm_password')"
+                  >
+                    Las contraseñas deben coincidir
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Botones de Inicio de Sesión -->
+              <div class="row mt-4">
+                <!-- Registro de nueva cuenta -->
+                <div class="col-sm-12 mb-3">
+                  <button
+                    type="submit"
+                    (click)="register()"
+                    class="btn btn__auth form__btn"
+                  >
+                    Regístrese
+                  </button>
+                </div>
+              </div>
+  
+              <!-- Redirecciona a la vista de registro -->
+              <div class="row mt-4">
+                <div class="col-sm-12 align-row-center mb-4">
+                  <label>¿Ya tienes una cuenta?</label>
+                  <a
+                    [routerLink]="['/auth/ingresar']"
+                    routerLinkActive="router-link-active"
+                  >
+                    <label class="mx-2">Inicie sesión aquí</label>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  

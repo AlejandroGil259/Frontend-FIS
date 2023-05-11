@@ -1,0 +1,42 @@
+
+.background-image {
+    background-image: url('../../../../assets/Fondo-Padre-plan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .section-container {
+    border: 1px solid #2e2e2e; /* Ancho y estilo del borde */
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 20px;
+    width: 60%;
+    height: 130%;
+    margin-top: 50px;
+    padding: 10px; /* Espacio interno para separar el contenido del borde */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .column {
+    width: 50%;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: 70%;
+    margin-bottom: 60px;
+    margin-right: 20px;
+    border-radius: 20px;
+  }
+  

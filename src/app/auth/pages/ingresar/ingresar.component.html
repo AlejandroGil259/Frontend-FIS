@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center background-image">
+  <div class="section-container">
+    <div class="container">
+      <div class="column">
+        <img
+          class="img"
+          src="../../../../assets/2-Perfil-Padre-plan.jpg"
+          alt=""
+        />
+      </div>
+      <div class="column">
+        <div class="col-md-12">
+          <!-- Asociar el formulario de HTML con el contenido de la clase del componente -->
+          <form method="post" [formGroup]="loginForm" autocomplete="off">
+            <!-- Input Text de Email -->
+            <div class="mb-3 row">
+              <div class="col">
+                <i class="d-flex justify-content-center bi bi-person-circle"></i>
+               
+                <div class="align-row-center">
+                  <h1 class="">Inicio de sesión</h1>
+                </div>
+                <small class="text-danger">* Indica Campos Obligatorios</small>
+                <div class="my-3">
+                  <label class="col-form-control">
+                    Email <span class="text-danger">*</span>
+                  </label>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="Ingresa tu email"
+                />
+                <span
+                  class="form-text text-danger"
+                  *ngIf="isInvalidField('email')"
+                >
+                  {{ emailError }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Input Text de Password -->
+            <div class="mb-3 row">
+              <div class="col">
+                <div class="my-3 flex__label-input">
+                  <label class="col-form-control">
+                    Contraseña <span class="text-danger">*</span>
+                  </label>
+                  <label class="col-form-control pointer">
+                    ¿Olvidaste tu contraseña?
+                  </label>
+                </div>
+
+                <div class="flex__input">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    class="form-control"
+                    formControlName="password"
+                    placeholder="Ingresa tu contraseña"
+                  />
+                  <button
+                    type="button"
+                    class="input__show"
+                    (click)="togglePassword()"
+                  >
+                    <i
+                      [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+                    ></i>
+                  </button>
+                </div>
+                <span
+                  class="form-text text-danger"
+                  *ngIf="isInvalidField('password')"
+                >
+                  Se debe ingresar una contraseña
+                </span>
+              </div>
+            </div>
+
+            <!-- Botones de Inicio de Sesión -->
+            <div class="row mt-4">
+              <!-- Inicio de Sesión con Email y Password -->
+              <div class="col-sm-12 mb-3">
+                <button
+                  type="submit"
+                  (click)="login()"
+                  class="btn btn__auth form__btn"
+                >
+                  Iniciar Sesión
+                </button>
+              </div>
+            </div>
+
+            <!-- Redirecciona a la vista de registro -->
+            <div class="row mt-4">
+              <div class="col-sm-12 align-row-center mb-4">
+                <label>¿Aún no estas registrado? Haz click </label>
+                <a
+                  [routerLink]="['/auth/registrar']"
+                  routerLinkActive="router-link-active"
+                >
+                  <label class="mx-2"> Aquí </label>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
